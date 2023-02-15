@@ -3,7 +3,10 @@ server:
   port: 9102
 spring:
   cloud:
+    discovery:
+      enabled: true
     gateway:
+      default-filters: TokenRelay
       routes:
         - id: route-account-management
           uri: lb://AccountManagementMS
@@ -11,6 +14,7 @@ spring:
             - Path=/account/**
   main: 
     web-application-type: reactive
+
 eureka:
  client:
    service-url:
@@ -18,3 +22,17 @@ eureka:
    fetch-registry: true
    register-with-eureka: true
    enabled: false
+   
+security:
+  oauth2:
+      client:
+        provider:
+          keycloak-sso:
+            issuer-uri: http://185.215.166.203:8090/auth/realms/coconutConnectionRealm
+        registration:
+          GatewayMs:
+            provider: keycloak-sso
+            client-id: coconutconnection
+            client-secret: 947ed099-00d8-47ee-982f-9297701c2a1d
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:9105/login/oauth2/code/keycloak
