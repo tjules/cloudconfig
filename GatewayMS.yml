@@ -9,7 +9,8 @@ spring:
           uri: lb://AccountManagementMS
           predicates:
             - Path=/account/**
-  main: web-application-type=reactive
+  main: 
+    web-application-type: reactive
 eureka:
  client:
    service-url:
