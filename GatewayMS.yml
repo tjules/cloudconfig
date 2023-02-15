@@ -21,18 +21,17 @@ eureka:
      defaultZone: http://localhost:8761/eureka
    fetch-registry: true
    register-with-eureka: true
-   enabled: false
    
-security:
-  oauth2:
-      client:
-        provider:
-          keycloak-sso:
-            issuer-uri: http://185.215.166.203:8090/auth/realms/coconutconnectionrealm
-        registration:
-          GatewayMs:
-            provider: keycloak-sso
-            client-id: coconutconnection
-            client-secret: 913d4391-6935-4198-92fe-3311868ea269
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:9102/login/oauth2/code/keycloak
+  security:
+    oauth2:
+        client:
+          provider:
+            keycloak-sso:
+              issuer-uri: http://185.215.166.203:8090/auth/realms/coconutconnectionrealm
+          registration:
+            GatewayMs:
+              provider: keycloak-sso
+              client-id: coconutconnection
+              client-secret: 913d4391-6935-4198-92fe-3311868ea269
+              authorization-grant-type: authorization_code
+              redirect-uri: http://localhost:9102/login/oauth2/code/keycloak
