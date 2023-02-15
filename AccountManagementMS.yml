@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coconutconnection
+    username: coconutconnection
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+#  liquibase:
+#    change-log=classpath:db/changelog/master.xml:
+#  zipkin:
+#    base-url: http://zipkin:9411
+eureka:
+ client:
+   service-url:
+     defaultZone: http://eureka-server:8761/eureka
+   fetch-registry: true
+   register-with-eureka: true
+   enabled: false
