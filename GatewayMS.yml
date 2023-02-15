@@ -11,7 +11,7 @@ spring:
         - id: route-account-management
           uri: lb://AccountManagementMS
           predicates:
-            - Path=/account/**
+            - Path=/api/account/**
   main: 
     web-application-type: reactive
 
